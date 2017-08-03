@@ -1,0 +1,7 @@
+{
+    "eslint.enable": true,
+    "eslint.autoFixOnSave": true,
+    "editor.tabSize": 2,
+    "mocha.files.glob": "test/**/*.test.js",
+    "mocha.enabled": true
+}
