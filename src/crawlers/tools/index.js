@@ -2,9 +2,11 @@ const rp = require('request-promise-native');
 const cheerio = require('cheerio');
 const Url = require('url');
 const iconv = require('iconv-lite');
+const fs = require('fs');
+const debug = require('debug')('CrawlerTools');
+const lxfs = require('../../utils/lxfs');
 
 const URL = Url.URL;
-
 const Tools = {};
 
 function handleError(err) {
@@ -86,21 +88,26 @@ function parseGotHref(base, href, crossSite = false) {
   refUrl.hash = '';
   return refUrl;
 }
-
 Tools.parseGotHref = parseGotHref;
 
-
 /**
- * extract all hrefs from input url
+ * extract page info  from input url
  * @param url: url to be extract
- * @return: none
+ * @return: 
+    object:{
+      urls:urls in the page
+    }
  * 
  */
-async function extractPageUrls(url, encoding = 'utf8') {
+async function extractPageInfos(url, encoding = 'utf8') {
   // encoding = 'binary';
   const options = {
     uri: url,
     encoding: null,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36',
+    },
     transform(body, response, resolveWithFullResponse) {
       // let ret = body;
       // if (encoding !== null) {
@@ -114,34 +121,68 @@ async function extractPageUrls(url, encoding = 'utf8') {
   const baseurl = Url.parse(url);
   // console.log(baseurl);
 
-  const rtn = [];
-
+  const rtnobj = {};
+  const urls = [];
   $('a').each((index, element) => {
     const text = $(element).text();
     const href = $(element).attr('href');
     console.log(`${text} : ${href}`);
     if (typeof href !== 'undefined') {
-      // console.log(href);
-      // console.log(index);
-      // const gotHref = URL.resolve(baseurl, href);
       const gotHref = parseGotHref(baseurl, href);
       if (gotHref) {
-        rtn.push({ text, href: gotHref.href });
+        urls.push({ text, href: gotHref.href });
       }
-      // console.log(gotHref);
-      // console.log('========================');
     }
   });
-  return rtn;
-  // console.dir(urlDict);
-  // console.dir(urlToProcess);
-  // console.log(content);
+  rtnobj.urls = urls;
+  return rtnobj;
+}
+Tools.extractPageInfos = extractPageInfos;
+
+/**
+ * extract all hrefs from input url
+ * @param url: url to be extract
+ * @return: none
+ * 
+ */
+async function extractPageUrls(url, encoding = 'utf8') {
+  const obj = await extractPageInfos(url, encoding);
+  return obj.urls;
 }
 Tools.extractPageUrls = extractPageUrls;
 
-// URL.parse('http://systester.com').href;
-// urlDict;
-// while (urlToProcess) { Tools.extractPageUrls('http://systester.com'); }
 
+/**
+ * Append url To File After Url is Grabed.
+ * At the end of the json string, a '\n' added.
+ * 
+ * @param {any} saveObj {text:text ,url:url}
+ * @param {any} filepath 
+ */
+function saveUrl(saveObj, filepath) {
+  fs.appendFile(filepath, `${JSON.stringify(saveObj)}\n`, 'utf8', (e) => { if (e) throw e; });
+}
+Tools.saveUrl = saveUrl;
+
+/**
+ * Asynchronously read the content
+ * 
+ * @param {any} filepath 
+ * @param {any} cb  callback to parse the data
+ */
+function loadUrls(filepath, cb) {
+  debug(`Load file:${filepath}`);
+  const filexists = fs.existsSync(filepath);
+  if (filexists) {
+    fs.readFile(filepath, 'utf8', (err, data) => {
+      if (err) throw err;
+      cb(data);
+    });
+  } else {
+    lxfs.createFile(filepath);
+  }
+  // fs.appendFile(filepath, `${url}\n`, (e) => { if (e) throw e; });
+}
+Tools.loadUrls = loadUrls;
 
 module.exports = Tools;
