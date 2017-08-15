@@ -16,7 +16,7 @@
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
             "env": {
-                "debug": "*",
+                "debug": "*,-sequelize:*,-retry-as-promised",
                 "NODE_ENV": "development"
             }
         }

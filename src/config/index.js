@@ -7,6 +7,8 @@ const merge = require('lodash/merge');
 const debug = require('debug')('config');
 const dirConf = require('./dirs.conf');
 const koaConf = require('./koa.conf');
+const logsConf = require('./logs.conf');
+const cronConf = require('./cron.conf');
 const dbConf = require('./db.conf');
 const crawlerConf = require('./crawler.conf');
 
@@ -21,7 +23,7 @@ const pro = existsConfigFile('pro.js') ? require('./pro') : { proconf: 'load err
 // 返回的config对象
 let config = {
   app: {
-    name: 'Electron Support System Client',
+    name: 'Labthink competitor infomation crawler',
     port: 3030,
   },
   debug: true,
@@ -30,7 +32,9 @@ let config = {
 
   dir: dirConf,
   koa: koaConf,
+  log: logsConf,
   crawler: crawlerConf,
+  cron: cronConf,
   db: dbConf,
 };
 

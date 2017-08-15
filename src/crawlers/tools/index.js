@@ -10,7 +10,7 @@ const URL = Url.URL;
 const Tools = {};
 
 function handleError(err) {
-  console.log(`error status is ${err.statusCode}`);
+  debug(`error status is ${err.statusCode}`);
   // console.log(`error message is ${err.message}`);
   // const response = err.response;
   return '';
@@ -21,7 +21,7 @@ function handleError(err) {
  * parse a string to URL object
  * 
  * @param {any} href string or URL Object
- * @returns URL Object
+ * @returns  URL Object
  */
 function URLfyHref(href) {
   let url2format = href;
@@ -79,9 +79,30 @@ function parseGotHref(base, href, crossSite = false) {
   const /** t:String */ gotHref = Url.resolve(base, href);
   // const refUrl = Url.parse(gotHref);
   const refUrl = URLfyHref(gotHref);
-
-  if (baseUrl.host !== refUrl.host) {
-    if (crossSite === false) {
+  if (crossSite === false) {
+    let sameSiteFlag = false;
+    if (baseUrl.host === refUrl.host) {
+      sameSiteFlag = sameSiteFlag || true;
+    }
+    const subBaseurl = baseUrl.host.substr(baseUrl.host.indexOf('.'));
+    const subRefUrl = refUrl.host.substr(refUrl.host.indexOf('.'));
+    // www.baidu.com/1  to www.baidu.com/2
+    if (baseUrl.host === refUrl.host) {
+      sameSiteFlag = sameSiteFlag || true;
+    }
+    // www.baidu.com/1  to baidu.com/3
+    if (subBaseurl === refUrl.host) {
+      sameSiteFlag = sameSiteFlag || true;
+    }
+    // www.baidu.com/1  to aa.www.baidu.com/4
+    if (baseUrl.host === subRefUrl) {
+      sameSiteFlag = sameSiteFlag || true;
+    }
+    // www.baidu.com/1  to aa.baidu.com/4
+    if (subBaseurl === subRefUrl) {
+      sameSiteFlag = sameSiteFlag || true;
+    }
+    if (sameSiteFlag === false) {
       return null;
     }
   }
@@ -95,7 +116,9 @@ Tools.parseGotHref = parseGotHref;
  * @param url: url to be extract
  * @return: 
     object:{
-      urls:urls in the page
+      urls:urls in the page,
+      body: whole content,
+      refurl: url who got this object
     }
  * 
  */
@@ -116,17 +139,19 @@ async function extractPageInfos(url, encoding = 'utf8') {
       return iconv.decode(body, encoding);
     },
   };
+
+
   const content = await rp(options).catch(handleError);
   const $ = cheerio.load(content);
   const baseurl = Url.parse(url);
   // console.log(baseurl);
 
-  const rtnobj = {};
+
   const urls = [];
   $('a').each((index, element) => {
     const text = $(element).text();
     const href = $(element).attr('href');
-    console.log(`${text} : ${href}`);
+    // console.log(`${text} : ${href}`);
     if (typeof href !== 'undefined') {
       const gotHref = parseGotHref(baseurl, href);
       if (gotHref) {
@@ -134,7 +159,13 @@ async function extractPageInfos(url, encoding = 'utf8') {
       }
     }
   });
+
+
+  // the return object,contains urls and content and fetchUrl 
+  const rtnobj = {};
   rtnobj.urls = urls;
+  rtnobj.body = content;
+  rtnobj.refurl = url;
   return rtnobj;
 }
 Tools.extractPageInfos = extractPageInfos;

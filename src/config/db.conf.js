@@ -5,10 +5,15 @@ const dbConf = {
   host: 'localhost',
   port: 3306,
   dialect: 'mysql',
+  logging: false,
   pool: {
-    max: 5,
+    max: 20,
     min: 0,
-    idle: 30000,
+    idle: 40000,
+    maxIdleTime: 120000,
+    acquire: 30000,
+    evict: 60000,
+    handleDisconnects: true,
   },
 };
 

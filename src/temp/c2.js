@@ -1,7 +1,8 @@
-function test(a, b = 'u') {
-  console.log(b);
-}
+const a = { a: 'dd', b: ['aa', 'bb', 'cc'] };
+const b = [...a.b];
 
-test(3, 4);
-test(3);
-test(3, null);
+console.log(a);
+console.log(b);
+b.shift();
+console.log(a);
+console.log(b);

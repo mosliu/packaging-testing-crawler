@@ -5,6 +5,7 @@ const sequelize = new Sequelize(config.db.database, config.db.username, config.d
   host: config.db.host,
   dialect: config.db.dialect,
   pool: config.db.pool,
+  logging: config.db.logging,
 });
 
 function init() {
