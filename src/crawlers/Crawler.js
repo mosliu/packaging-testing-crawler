@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const lxfs = require('..//utils/lxfs');
+// const url = require('url');
 // const Datastore = require('nedb');
 const Debug = require('debug');
 const Tools = require('./tools');
@@ -54,7 +55,7 @@ function initUrlToProcess() {
     arr.forEach((doc) => {
       this.urlToProcess.push(doc.url);
     });
-    console.log(`mydb find ${arr.length} urls`);
+    this.debug(`mydb find ${arr.length} urls`);
   });
 
 
@@ -66,19 +67,6 @@ function initUrlToProcess() {
   // });
 }
 
-/**
- * Judge a url is or not a Document file.return false if it is a webpage.
- * 
- * @param {any} url 
- * @returns 
- */
-function judgedDocFile(url) {
-  let flag = false;
-  if (url.endsWith('.pdf')) {
-    flag = true;
-  }
-  return flag;
-}
 
 /**
  * 
@@ -97,7 +85,7 @@ function processNextUrl(obj) {
       websiteflag: this.siteconfig.websiteflag,
     };
     if (!this.urlDict[url2add]) {
-      const fileflag = judgedDocFile(url2add);
+      const fileflag = Tools.judgedDocFile(url2add, this.siteconfig.websiteflag);
       storeObj.isfile = fileflag;
       // update urlDict
       this.urlDict[url2add] = storeObj;
@@ -145,11 +133,11 @@ class Crawler {
     // First process the urls listed in the urlSeed.
     // then process the urls got in seed urls
     while (this.urlToProcess.length > 0) {
-      if (this.concurrency === 0) {
-        continue;
-      } else {
-        this.concurrency = this.concurrency - 1;
-      }
+      // if (this.concurrency === 0) {
+      //   continue;
+      // } else {
+      //   this.concurrency = this.concurrency - 1;
+      // }
       const nexturl = this.urlToProcess.shift();
       this.debug(`====processing:${nexturl}`);
       const pageinfo = await Tools.extractPageInfos(nexturl, this.siteconfig.pageencode);
@@ -160,6 +148,7 @@ class Crawler {
       urls.forEach((element) => {
         processNextUrl.call(this, element);
       });
+      // this.concurrency = this.concurrency + 1;
 
       /** *不要删，学习怎么await foreach */
       // await Promise.all(urls.map(async (url) => {

@@ -49,8 +49,8 @@
 {"url":"http://www.gbtest.cn/zh-CN/products.html?fid=60874&proTypeID=60874&proTypeName=%E5%86%B2%E5%87%BB%E6%B5%8B%E5%AE%9A%E6%A3%80%E6%B5%8B%E7%B3%BB%E5%88%97","title":"冲击测定检测系列","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products.html?fid=60872&proTypeID=60872&proTypeName=%E5%AF%86%E5%B0%81%E8%AF%95%E9%AA%8C%E4%BB%AA","title":"密封试验仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products.html?fid=60871&proTypeID=60871&proTypeName=%E7%83%AD%E6%94%B6%E7%BC%A9%E8%AF%95%E9%AA%8C%E4%BB%AA","title":"热收缩试验仪","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/products.html?fid=119123&proTypeID=119123&proTypeName=%E5%8C%85%E8%A3%85%EF%BC%8C%E5%AE%B9%E5%99%A8%E8%80%90%E5%8E%8B%E8%AF%95%E9%AA%8C%E4%BB%AA","title":"包装，容器耐压试验仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products.html?fid=60857&proTypeID=60857&proTypeName=%E7%BA%B8%E7%AE%B1%E8%80%90%E5%8E%8B%E8%AF%95%E9%AA%8C%E6%9C%BA","title":"纸箱耐压试验机","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/products.html?fid=119123&proTypeID=119123&proTypeName=%E5%8C%85%E8%A3%85%EF%BC%8C%E5%AE%B9%E5%99%A8%E8%80%90%E5%8E%8B%E8%AF%95%E9%AA%8C%E4%BB%AA","title":"包装，容器耐压试验仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products.html?fid=60863&proTypeID=60863&proTypeName=%E6%92%95%E8%A3%82%E5%BA%A6%E6%B5%8B%E8%AF%95%E4%BB%AA","title":"撕裂度测试仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products.html?fid=60856&proTypeID=60856&proTypeName=%E8%80%90%E7%A0%B4%E5%BA%A6%E6%B5%8B%E8%AF%95%E4%BB%AA","title":"耐破度测试仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products.html?fid=60858&proTypeID=60858&proTypeName=%E5%8E%8B%E7%BC%A9%E8%AF%95%E9%AA%8C%E4%BB%AA","title":"压缩试验仪","websiteflag":"gbtest.cn","isfile":false}
@@ -182,8 +182,8 @@
 {"url":"http://www.gbtest.cn/zh-CN/products002.html?fid=29376&fname=%E6%B2%B9%E5%A2%A8%EF%BC%8C%E7%B2%98%E5%90%88%E5%89%82&typeid2=30514","title":"热封性能","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products002.html?fid=29376&fname=%E6%B2%B9%E5%A2%A8%EF%BC%8C%E7%B2%98%E5%90%88%E5%89%82&typeid2=30513","title":"摩擦系数","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products002.html?fid=29377","title":"药包材，医疗器械","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/products002.html?fid=29377&fname=%E8%8D%AF%E5%8C%85%E6%9D%90%EF%BC%8C%E5%8C%BB%E7%96%97%E5%99%A8%E6%A2%B0&typeid2=30531","title":"氧气透过率检测","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products002.html?fid=29377&fname=%E8%8D%AF%E5%8C%85%E6%9D%90%EF%BC%8C%E5%8C%BB%E7%96%97%E5%99%A8%E6%A2%B0&typeid2=30530","title":"气体透过率检测","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/products002.html?fid=29377&fname=%E8%8D%AF%E5%8C%85%E6%9D%90%EF%BC%8C%E5%8C%BB%E7%96%97%E5%99%A8%E6%A2%B0&typeid2=30531","title":"氧气透过率检测","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products002.html?fid=29377&fname=%E8%8D%AF%E5%8C%85%E6%9D%90%EF%BC%8C%E5%8C%BB%E7%96%97%E5%99%A8%E6%A2%B0&typeid2=30529","title":"水汽透过率检测","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products002.html?fid=29377&fname=%E8%8D%AF%E5%8C%85%E6%9D%90%EF%BC%8C%E5%8C%BB%E7%96%97%E5%99%A8%E6%A2%B0&typeid2=30528","title":"电子拉力机","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products002.html?fid=29377&fname=%E8%8D%AF%E5%8C%85%E6%9D%90%EF%BC%8C%E5%8C%BB%E7%96%97%E5%99%A8%E6%A2%B0&typeid2=30527","title":"拉力机专用取样器","websiteflag":"gbtest.cn","isfile":false}
@@ -260,8 +260,8 @@
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=858148","title":"Y201D氧气透过率测定仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=944464","title":"Y310氧气透过率测定仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=313833","title":"如何使食品包装袋溶剂残留达到国标，这里有方案","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=301469","title":"包装袋封边封口强度出现问题，怎么办？","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=310850","title":"软包装三种质量故障示例分析","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=301469","title":"包装袋封边封口强度出现问题，怎么办？","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=301408","title":"影响薄膜阻隔性能最全面的分析","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=300657","title":"包装材料及制品检测项目介绍","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=296784","title":"油墨附着牢度不理想，怎么解决？","websiteflag":"gbtest.cn","isfile":false}
@@ -323,8 +323,8 @@
 {"url":"http://www.gbtest.cn/en/displaynews.html?newsID=528445","title":"GBPI Product Service Programme Training","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/displaynews.html?newsID=484909","title":"Holiday Notice","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/displaynews.html?newsID=387425","title":"GBPI 2016 Annual Meeting","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/en/displaynews.html?newsID=371256","title":"GBPI gets CNAS Certificate!","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/displaynews.html?newsID=344764","title":"Universal Second Child Policy and Packaging Testing","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/en/displaynews.html?newsID=371256","title":"GBPI gets CNAS Certificate!","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=1652735","title":"水汽透过量标准物质","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=1652676","title":"气体透过量标准物质","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=1338550","title":"氧气透过量标准物质","websiteflag":"gbtest.cn","isfile":false}
@@ -339,10 +339,10 @@
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=854091","title":"Y210氧气透过率测定仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=968059","title":"N500气体透过率测定仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=968058","title":"N530气体透过率测定仪","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/products.html?fid=65140&proTypeID=65140","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=868321","title":"","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/products.html?fid=60869&proTypeID=60869","title":"","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/products.html?fid=65140&proTypeID=65140","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct002.html?proID=855737","title":"","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/products.html?fid=60869&proTypeID=60869","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=706462","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=1145497","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products.html?fid=60875&proTypeID=60875","title":"","websiteflag":"gbtest.cn","isfile":false}
@@ -374,7 +374,7 @@
 {"url":"http://www.gbtest.cn/zh-CN/products.html?fid=76835&proTypeID=76835","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products.html?fid=60866&proTypeID=60866","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/products.html?fid=65146&proTypeID=65146","title":"","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/kps01/M00/61/E2/wKiAiVV1ElKdmIMZAAcrfc1YSL0973.jpg","title":"","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/kps01/M00/61/E2/wKiAiVV1ElKdmIMZAAcrfc1YSL0973.jpg","title":"","websiteflag":"gbtest.cn","isfile":true}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=858055","title":"ZM-100反压高温蒸煮消毒锅","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=858054","title":"ZM-40G反压高温蒸煮消毒锅","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=509833","title":"【会议活动】广州标际出席《第四届农产品产地初加工科技交流大会》","websiteflag":"gbtest.cn","isfile":false}
@@ -389,17 +389,17 @@
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=509636","title":"【 遇见标际】一场美丽的邂逅|北京科学仪器展","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=503710","title":"【家庭文化】祝你生日快乐，爱在标际之家","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=503663","title":"【学校文化】标际打造学习型企业，邀中大MBA老师授课","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=503137","title":"第十五届中国国际科学仪器及实验室装备展览会邀请函","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=501236","title":"标准物质对食品药品包装材料阻隔性能检测的意义","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=498866","title":"CNAS国家实验室—广州标际包装设备有限公司检测中心","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/news.html?pageIndex=2&newsTypeID=11342&newsType=%E5%85%AC%E5%8F%B8%E6%96%B0%E9%97%BB","title":"[下一页]","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=503137","title":"第十五届中国国际科学仪器及实验室装备展览会邀请函","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/news.html?pageIndex=6&newsTypeID=11342&newsType=%E5%85%AC%E5%8F%B8%E6%96%B0%E9%97%BB","title":"[尾 页]","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=657577","title":"GBR热粘性测试仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=1145280","title":"GBB-D热封仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=1145282","title":"GM-5摩擦系数测定仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=1145292","title":"GM-FB摩擦剥离测定仪","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=854426","title":"GBD-B摆锤冲击测定仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=854424","title":"GBG-L电子摆锤冲击测定仪","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=854426","title":"GBD-B摆锤冲击测定仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=854433","title":"GBD-L落镖冲击测定仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=657599","title":"GB-LQ落球试验仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=854502","title":"GBN2000Z纸箱抗压试验机","websiteflag":"gbtest.cn","isfile":false}
@@ -419,8 +419,8 @@
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=657590","title":"X-Rite 528分光密度仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=657586","title":"熔融指数测定仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=657585","title":"WSB-L白度计","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=657587","title":"纸杯挺度测定仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=657588","title":"纸张挺度测定仪","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/displayproduct.html?proID=657587","title":"纸杯挺度测定仪","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct002.html?proID=2148729","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct002.html?proID=853845","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displayproduct002.html?proID=1333917","title":"","websiteflag":"gbtest.cn","isfile":false}
@@ -478,8 +478,8 @@
 {"url":"http://www.gbtest.cn/en/products.html?fid=83296&proTypeID=83475&proTypeName=Negative%20Pressure%20Method","title":"Negative Pressure Method","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/products.html?fid=83296&proTypeID=83476&proTypeName=The%20Positive%20Pressure%20Method","title":"The Positive Pressure Method","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/products.html?proTypeID=83297&proTypeName=Heat%20Shrink%20Tester","title":"Heat Shrink Tester","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/en/products.html?proTypeID=83298&proTypeName=Compression%20Tester","title":"Compression Tester","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/products.html?proTypeID=83299&proTypeName=Tear%20Tester","title":"Tear Tester","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/en/products.html?proTypeID=83298&proTypeName=Compression%20Tester","title":"Compression Tester","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/products.html?proTypeID=83300&proTypeName=Bursting%20Strength%20Tester","title":"Bursting Strength Tester","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/products.html?proTypeID=83599&proTypeName=Compression%20Test%20Instrument","title":"Compression Test Instrument","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/products.html?fid=83301&proTypeID=83477&proTypeName=Digital%20Thickness%20Gauge","title":"Digital Thickness Gauge","websiteflag":"gbtest.cn","isfile":false}
@@ -520,8 +520,8 @@
 {"url":"http://www.gbtest.cn/en/feedback.html?proID=1426032","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/displayproduct002.html?proID=1426032","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/displayproduct.html?proID=1428797","title":"Gravimetric Method -W302 Water Vapor Permeability Analyzer","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/en/displayproduct002.html?proID=963169","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/feedback.html?proID=963169","title":"","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/en/displayproduct002.html?proID=963169","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/feedback.html?proID=964415","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/displayproduct.html?proID=657544","title":"Equal-Pressure Method -Y210 Oxygen Permeability Analyzer","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/feedback.html?proID=965390","title":"","websiteflag":"gbtest.cn","isfile":false}
@@ -557,20 +557,20 @@
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=479796","title":"广州标际包装设备有限公司2017年会暨2016年度表彰盛典","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=456503","title":"（西安站）国家透湿性、透气性、透氧性标准物质暨包材检测仪器研讨会邀请函","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=422443","title":"国家透湿性、透气性、透氧性标准物质暨包材检测仪器研讨会（杭州站）","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=400081","title":"第三十届中国国际塑料橡胶工业展览会，我在上海等你","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=400076","title":"薄膜透氧性、透湿性、透气性标准物质，让您的仪器有标准可依","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=391303","title":"广州标际薄膜透气性、透氧性、透湿性国家标准物质研讨会（第二期）","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=387404","title":"广州标际参加《国家药包材标准》宣贯培训会议","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=387387","title":"广州标际参加2016中国国际包装展并取得圆满成功","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=375888","title":"热烈祝贺广州标际国家标准物质研讨会取得圆满成功","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=375884","title":"广州标际2016新年晚会","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=400081","title":"第三十届中国国际塑料橡胶工业展览会，我在上海等你","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=371243","title":"广州标际获得CNAS实验室认可资质！","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=349957","title":"广州标际将参加2015iFresh亚洲果蔬产业大会","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=349953","title":"广州标际将参加中国国际医药（工业）展览会暨技术交流会","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=343327","title":"广州标际将参加第七十五届中国国际医药原料药、中间体、包装、设备交易会","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/news.html?pageIndex=3&newsTypeID=11342&newsType=%E5%85%AC%E5%8F%B8%E6%96%B0%E9%97%BB","title":"[下一页]","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206649","title":"热烈祝贺昆明永臻包装学员顺利结业","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206650","title":"透氧仪检测意义","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206649","title":"热烈祝贺昆明永臻包装学员顺利结业","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206658","title":"引领药包材解决方案，标际出席上海制药展","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206646","title":"气体透过率测试仪厂家浅谈最近10年的仪器设备发展","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206647","title":"气体透过率测试仪-气体透过率测试仪行业分析环保检测仪器的发展潜力","websiteflag":"gbtest.cn","isfile":false}
@@ -725,8 +725,8 @@
 {"url":"http://www.gbtest.cn/en/products.html?pageIndex=0&proTypeID=83611","title":"[Last]","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/displayproduct.html?proID=1580959","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/products.html?fid=83311&proTypeID=83619","title":"[First]","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/en/products.html?pageIndex=0&fid=83311&proTypeID=83620","title":"[Last]","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/products.html?fid=83311&proTypeID=83620","title":"[First]","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/en/products.html?pageIndex=0&fid=83311&proTypeID=83620","title":"[Last]","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/displayproduct.html?proID=657533","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/products.html?proTypeID=83313","title":"[First]","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/en/products.html?pageIndex=3","title":"[Next]","websiteflag":"gbtest.cn","isfile":false}
@@ -749,8 +749,8 @@
 {"url":"http://www.gbtest.cn/en/feedback.html?proID=965682","title":"","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=307747","title":"恭喜广州标际获得《全自动转盘式热封机》发明专利","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=307733","title":"服务专访：湖南金健药业有限公司","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=304595","title":"恭喜广州标际获得蒸发残渣测定仪专利","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=305458","title":"恭喜广州标际和北京大学化学与分子工程学院合作","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=304595","title":"恭喜广州标际获得蒸发残渣测定仪专利","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=302357","title":"恭喜广州标际获得《一种增重法水汽透过率测定仪》专利","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=302094","title":"恭喜广州标际与大连屹海包装有限公司合作","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=300921","title":"服务回访——石家庄育才药用包装材料有限公司","websiteflag":"gbtest.cn","isfile":false}
@@ -768,11 +768,11 @@
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206645","title":"广州标际于第46届全国制第药机械博览会取得圆满成功","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206654","title":"我司将参展46届全国制第药机械博览会","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206630","title":"GBPI广州标际亮相中国国际包装工业展","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206639","title":"广州标际力助安徽医药包装协会年会","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206642","title":"广州标际热烈祝贺潮汕庵埠获封“药包材专业镇”","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=153619","title":"广州标际出彩马来西亚展会","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206633","title":"恭喜GBPI标际封管机出口日本","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206639","title":"广州标际力助安徽医药包装协会年会","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206640","title":"广州标际亮剑越南包装展","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=153619","title":"广州标际出彩马来西亚展会","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206641","title":"广州标际马来西亚展会圆满成功","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=153618","title":"GBPI广州标际参加中国国际高性能薄膜展","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=206637","title":"广州标际参加2013第26届印尼橡塑及包装机械展","websiteflag":"gbtest.cn","isfile":false}
@@ -869,8 +869,8 @@
 {"url":"http://www.gbtest.cn/en/products.html?pageIndex=6","title":"[Previous]","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=256844","title":"第二十二届中国国际包装工业展览会邀请函","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=229821","title":"广州标际药用包装检测方案在中国国际医药工业展受热捧","websiteflag":"gbtest.cn","isfile":false}
-{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=219012","title":"广州标际“2014年国庆节”放假通知","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=224653","title":"GBPI广州标际参加中国国际医药工业展CHINA-PHARM","websiteflag":"gbtest.cn","isfile":false}
+{"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=219012","title":"广州标际“2014年国庆节”放假通知","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=213313","title":"客户服务践行——记周总到昆明永臻培训","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=212521","title":"GBPI广州标际参加12届雄县包装印刷博览会","websiteflag":"gbtest.cn","isfile":false}
 {"url":"http://www.gbtest.cn/zh-CN/displaynews.html?newsID=211929","title":"广州标际2014年中秋节放假通知","websiteflag":"gbtest.cn","isfile":false}

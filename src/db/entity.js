@@ -4,15 +4,16 @@ const db = require('./db');
 const entity = db.define('crawler_data', {
 
   // id
-  // id: { type: Sequelize.BIGINT(20), autoIncrement: true,},
+  id: { type: Sequelize.BIGINT(20), autoIncrement: true, primaryKey: true },
   websiteflag: { type: Sequelize.STRING },
   // url grabbed
-  url: { type: Sequelize.STRING(255), primaryKey: true },
+  url: { type: Sequelize.STRING(255) },
   // is accessed and grab content
   accessed: { type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false },
   accesseDate: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
 
   isfile: { type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false },
+  notuseful: { type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false },
 
   // url's text
   title: { type: Sequelize.STRING(255) },
@@ -33,7 +34,6 @@ const entity = db.define('crawler_data', {
   //
   bodytitle: { type: Sequelize.STRING(500) },
   bodymain: { type: Sequelize.TEXT('medium') },
-  // bodymain: { type: Sequelize.TEXT },
   bodykey: { type: Sequelize.STRING(500) },
   bodydate: { type: Sequelize.DATE },
   // is notify relavtive people

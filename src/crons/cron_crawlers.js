@@ -1,8 +1,10 @@
 const config = require('../config');
 const CronJob = require('cron').CronJob;
+const crawlers = require
 
 const cronconf = config.cron;
 
+async function 
 async function getHosts() {
   console.log(`Fetch hosts ,time:${new Date()}`);
   const values = await hosts();

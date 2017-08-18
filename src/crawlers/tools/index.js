@@ -216,4 +216,33 @@ function loadUrls(filepath, cb) {
 }
 Tools.loadUrls = loadUrls;
 
+
+/**
+ * Judge a url is or not a Document file.return false if it is a webpage.
+ * 
+ * @param {any} href 
+ * @param {any} this.siteconfig.websiteflag indict the website 
+ * @returns 
+ */
+function judgedDocFile(href, websiteflag) {
+  const u = Url.parse(href);
+  let flag = false;
+  const pathname = u.pathname;
+  if (websiteflag === '' && 1 === 0) {
+    // Fake method, here for which site's path is particular
+    flag = true;
+  }
+  if (pathname.indexOf('.') === -1) {
+    // The pathname is not end with any suffix. think it as false
+  } else {
+    const suffixs = ['pdf', 'jpg', 'gif', 'png', 'mp4', 'mp3', 'wav', 'rm'];
+    const suffix = u.pathname.substr(pathname.lastIndexOf('.') + 1);
+    if (suffixs.includes(suffix)) {
+      flag = true;
+    }
+  }
+
+  return flag;
+}
+Tools.judgedDocFile = judgedDocFile;
 module.exports = Tools;
