@@ -1,26 +1,20 @@
 const config = require('../config');
 const CronJob = require('cron').CronJob;
-const crawlers = require
+const debug = require('debug')('Cron:Crawler');
+const crawlers = require('../crawlers');
 
-const cronconf = config.cron;
+const cronconf = config.cron.crawler;
 
-async function 
-async function getHosts() {
-  console.log(`Fetch hosts ,time:${new Date()}`);
-  const values = await hosts();
-  const count = Object.getOwnPropertyNames(values).length;
-  console.log(`get ${count} hosts data`);
-  if (count > 100) {
-    cache.put('hosts', values);
-  }
-  console.log('================');
+async function startCrawler() {
+  debug('Crawler Cron triggered ,Crawler Start');
+  await crawlers.start();
 }
 
 
 function startCrawl() {
   // '0 * * * *'
   return new CronJob(cronconf.crontab, (async () => {
-    await getHosts();
+    await startCrawler();
   }), null, true, 'Asia/Chongqing');
 }
 module.exports = startCrawl;

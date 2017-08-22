@@ -1,19 +1,14 @@
-const cronConf = {
+const crawler = {
   // 每小时
-  crontab: '0 * * * *',
-
-  database: 'crawlers',
-  username: 'crawlers',
-  password: '123456',
-  host: 'localhost',
-  port: 3306,
-  dialect: 'mysql',
-  logging: false,
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 30000,
-  },
+  crontab: '0 21  * * * *',
+};
+const analyzer = {
+  // 每小时
+  crontab: '0 30 * * * *',
+};
+const cronConf = {
+  crawler,
+  analyzer,
 };
 
 module.exports = cronConf;

@@ -1,3 +1,21 @@
-const analyzer_systester = require('./systester');
+const systester = require('./systester');
+const gbtest = require('./gbtest');
+const sumspring = require('./sumspring');
 
-analyzer_systester.run();
+
+async function start() {
+  // await analyzer_systester.run();
+  await Promise.all(
+    [
+      systester.run(),
+      gbtest.run(),
+      sumspring.run(),
+    ],
+  );
+}
+
+
+module.exports = { start };
+
+
+// start();

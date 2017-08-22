@@ -183,5 +183,5 @@ const systester = {
 };
 
 init();
-run();
+// run();
 module.exports = systester;

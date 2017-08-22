@@ -263,5 +263,5 @@ const analyzer = {
 };
 
 init();
-run();
+// run();
 module.exports = analyzer;

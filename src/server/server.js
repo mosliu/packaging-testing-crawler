@@ -11,7 +11,6 @@ const bodyparser = require('koa-bodyparser');
 const logger = require('koa-logger');
 const logUtil = require('../utils/log_utils');
 
-const users = require('./routes/users');
 const index = require('./routes/index');
 // x-response-time
 

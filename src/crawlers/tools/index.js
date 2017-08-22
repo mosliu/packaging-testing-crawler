@@ -10,7 +10,7 @@ const URL = Url.URL;
 const Tools = {};
 
 function handleError(err) {
-  debug(`error status is ${err.statusCode}`);
+  debug(`Error Occurd :  ${err}`);
   // console.log(`error message is ${err.message}`);
   // const response = err.response;
   return '';
