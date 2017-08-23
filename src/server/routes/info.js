@@ -1,8 +1,16 @@
 const router = require('koa-router')();
 
 router.get('/', async (ctx, next) => {
-  // await ctx.render('layouts/blog', {
-  await ctx.render('index', {
+  await ctx.render('info/product', {
+    title: 'Hello Koa 2!',
+  });
+});
+
+router.get('/product/name/:name', async (ctx, next) => {
+  const name = ctx.params.name;
+
+
+  await ctx.render('layouts/blog', {
     title: 'Hello Koa 2!',
   });
 });

@@ -46,7 +46,9 @@ const formatRes = function (ctx, resTime) {
   logText += `response status: ${ctx.status}\n`;
 
   // 响应内容
-  logText += `response body: \n ${JSON.stringify(ctx.body)}\n`;
+  if (config.debug === true) {
+    logText += `response body: \n ${JSON.stringify(ctx.body)}\n`;
+  }
 
   // 响应日志结束
   // logText += '*************** response log end *************** \n';

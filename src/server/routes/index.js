@@ -5,11 +5,10 @@
 const router = require('koa-router')();
 const main = require('./main');
 const users = require('./users');
-const hosts = require('./hosts');
+const info = require('./info');
 
 router.use('', main.routes(), main.allowedMethods());
 router.use('/users', users.routes(), users.allowedMethods());
-router.use('/hosts', hosts.routes(), hosts.allowedMethods());
+router.use('/info', info.routes(), users.allowedMethods());
 
 module.exports = router;
-

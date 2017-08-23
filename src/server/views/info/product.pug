@@ -1,0 +1,101 @@
+extends ../_bootstrap
+append styles
+  // Bootstrap theme
+  //- +bootswatch("cerulean")
+  //- +bootswatch("spacelab")
+  // Custom styles for this template
+  link(href='../css/theme.css', rel='stylesheet')
+block body
+  // Fixed navbar
+  nav.navbar.navbar-default.navbar-fixed-top
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#') Bootswatch theme
+      #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li.active
+            a(href='#') Home
+          li
+            a(href='#about') About
+          li
+            a(href='#contact') Contact
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+              | Dropdown 
+              span.caret
+            ul.dropdown-menu(role='menu')
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li
+                a(href='#') Something else here
+              li.divider
+              li.dropdown-header Nav header
+              li
+                a(href='#') Separated link
+              li
+                a(href='#') One more separated link
+    
+  .container.theme-showcase(role='main')
+    // Main jumbotron for a primary marketing message or call to action
+    .jumbotron
+      h1 Bootswatch Themes example
+      p
+        | This is a template showcasing the various themes included in Bootswatch. Use it as a starting point to create something more unique by building on or modifying it.
+    
+    .page-header
+      h1 Tables
+    .row
+      .col-md-12
+        +table(["#","First Name","Last Name","Username"],[["1","Mark","Otto","@mdo"],["2","Jacob","Thornton","@fat"],["3","Larry","the Bird","@twitter"]])
+    .row
+      .col-md-6
+        +table-striped(["#","First Name","Last Name","Username"],[["1","Mark","Otto","@mdo"],["2","Jacob","Thornton","@fat"],["3","Larry","the Bird","@twitter"]])
+    .row
+      .col-md-6
+        +table-bordered(["#","First Name","Last Name","Username"],[["1","Mark","Otto","@mdo"],["2","Jacob","Thornton","@fat"],["3","Larry","the Bird","@twitter"]])
+      .col-md-6
+        +table-condensed(["#","First Name","Last Name","Username"],[["1","Mark","Otto","@mdo"],["2","Jacob","Thornton","@fat"],["3","Larry","the Bird","@twitter"]])
+  
+    
+
+    .page-header
+      h1 List groups
+    .row
+      .col-sm-4
+        ul.list-group
+          li.list-group-item Cras justo odio
+          li.list-group-item Dapibus ac facilisis in
+          li.list-group-item Morbi leo risus
+          li.list-group-item Porta ac consectetur ac
+          li.list-group-item Vestibulum at eros
+      // /.col-sm-4
+      .col-sm-4
+        .list-group
+          a.list-group-item.active(href='#')
+            | Cras justo odio
+          a.list-group-item(href='#') Dapibus ac facilisis in
+          a.list-group-item(href='#') Morbi leo risus
+          a.list-group-item(href='#') Porta ac consectetur ac
+          a.list-group-item(href='#') Vestibulum at eros
+      // /.col-sm-4
+      .col-sm-4
+        .list-group
+          a.list-group-item.active(href='#')
+            h4.list-group-item-heading List group item heading
+            p.list-group-item-text
+              | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+          a.list-group-item(href='#')
+            h4.list-group-item-heading List group item heading
+            p.list-group-item-text
+              | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+          a.list-group-item(href='#')
+            h4.list-group-item-heading List group item heading
+            p.list-group-item-text
+              | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
