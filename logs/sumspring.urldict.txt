@@ -1395,3 +1395,11 @@
 {"url":"http://www.sumspring.com/key.aspx?k=%cb%dc%c1%cf%c6%bf%d4%d8%d1%b9%d2%c7","title":"塑料瓶载压仪","websiteflag":"sumspring.com","isfile":false}
 {"url":"http://www.sumspring.com/key.aspx?k=%b4%b9%d6%b1%d4%d8%d1%b9%c7%bf%b6%c8","title":"垂直载压强度","websiteflag":"sumspring.com","isfile":false}
 {"url":"http://www.sumspring.com/key.aspx?k=%c6%bf%cc%e5%c4%cd%d1%b9%d2%c7","title":"瓶体耐压仪","websiteflag":"sumspring.com","isfile":false}
+{"url":"http://www.sumspring.com/news/347.html","title":"“第八届中国医疗器械监督管理国际会议”开幕","websiteflag":"sumspring.com","isfile":false}
+{"url":"http://www.sumspring.com/key.aspx?k=sumspring","title":"sumspring","websiteflag":"sumspring.com","isfile":false}
+{"url":"http://www.sumspring.com/news/348.html","title":"按照标准GB/T8939要求卫生巾（纸尿裤）吸水倍率怎样检测？​","websiteflag":"sumspring.com","isfile":false}
+{"url":"http://www.sumspring.com/News/News_15.html","title":"15","websiteflag":"sumspring.com","isfile":false}
+{"url":"http://www.sumspring.com/key.aspx?k=%ce%fc%cb%ae%b1%b6%c2%ca%b2%e2%ca%d4%d2%c7","title":"吸水倍率测试仪","websiteflag":"sumspring.com","isfile":false}
+{"url":"http://www.sumspring.com/key.aspx?k=%b1%ea%d7%bcGB%2fT8939","title":"标准GB/T8939","websiteflag":"sumspring.com","isfile":false}
+{"url":"http://www.sumspring.com/key.aspx?k=%cb%ae%b7%d6%d2%c7","title":"水分仪","websiteflag":"sumspring.com","isfile":false}
+{"url":"http://www.sumspring.com/key.aspx?k=%b1%b3%bd%ba%d5%b3%ba%cf%c7%bf%b6%c8%bc%ec%b2%e2%d2%c7","title":"背胶粘合强度检测仪","websiteflag":"sumspring.com","isfile":false}

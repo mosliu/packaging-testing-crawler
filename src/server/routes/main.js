@@ -9,7 +9,7 @@ router.get('/', async (ctx, next) => {
 
 router.get('/test/:name', async (ctx, next) => {
   const name = ctx.params.name;
-  await ctx.render(`layouts/${name}`, {
+  await ctx.render(`demos/${name}`, {
     title: 'Hello Koa 2!',
   });
 });

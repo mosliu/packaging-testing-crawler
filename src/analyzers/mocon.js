@@ -1,7 +1,7 @@
 const myDb = require('../db');
 const url = require('url');
 const cheerio = require('cheerio');
-const debug = require('debug')('Analyzer:sumspring');
+const debug = require('debug')('Analyzer:mocon');
 const Organizer = require('./organizer');
 const CONSTS = require('../CONSTS');
 
@@ -19,16 +19,6 @@ async function getNotParsed(website) {
   return rtn;
 }
 
-
-// 抽取形如 2017-09-12的日期
-function extractDate(text) {
-  if (text === null || text === '') {
-    return [];
-  }
-  const datereg = /\d{4}-\d{2}-\d{2}/ig;
-  const datestr = text.match(datereg);
-  return datestr;
-}
 /**
  * this middleware must put at the first 
  * 
@@ -48,73 +38,75 @@ async function preAndPostAnalyze(doc, next) {
   }
 }
 
-
-// 获取时，三泉中石会屏蔽。
-async function resetBlocked(doc, next) {
-  const $ = cheerio.load(doc.body);
-  const title = $('title').text().trim();
-  if (title === '网站防火墙') {
-    debug(`Found Blocked,id:${doc.id},reset it`);
-    doc.analyzed = false;
-    doc.accessed = false;
-    doc.needsave = true;
-    doc.body = '';
-  } else {
-    next();
-  }
-}
-
 async function processNews(doc, next) {
   // doc.url: http://systester.com/newsShow.asp?id=3637
   // pathname: /newsShow.asp
   const pathname = doc.pathname || url.parse(doc.url).pathname;
 
-  const pathnamematch = pathname.match(/\/news\/\d+\.html/gi);
-  if (pathnamematch == null) {
-    next();
-  } else {
+  if (pathname === '/zh-CN/displaynews.html') {
     debug(`Fount News,id:${doc.id}`);
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
     doc.bodytype = CONSTS.INFOTYPE.NEWS;
-    doc.bodytitle = $('title').text().trim().replace('_包装材料检测仪器制造专家_Sumspring_济南三泉中石实验仪器有限公司', '');
-    doc.bodytitle = doc.bodytitle.replace('-Jinan Sumspring Experiment Instrument Co.,ltd', '');
-    doc.analyzedbody = $('#con').text().trim();
-
-    const datestr = extractDate($('.info').text());
-
+    doc.bodytitle = $('.dnews_title').text().trim();
+    doc.analyzedbody = $('.dnews_content').text().trim();
+    const datereg = /\d{4}-\d{2}-\d{2}/ig;
+    const datestr = $('.dnews_line').text().match(datereg);
     if (datestr.length > 0) {
       doc.bodydate = new Date(datestr[0]);
-    } else {
-      doc.accessed = false;
     }
     // empty body field save the mysql space
     doc.body = '';
     doc.needsave = true;
+  } else if (pathname === '/en/displaynews.html') {
+    debug(`Found News,id:${doc.id}`);
+    const $ = cheerio.load(doc.body);
+    doc.analyzed = true;
+    doc.bodytype = CONSTS.INFOTYPE.NEWS;
+    doc.bodytitle = $('.dnews_title').text().trim();
+    doc.analyzedbody = $('.dnews_content').text().trim();
+    const datereg = /\d{4}-\d{2}-\d{2}/ig;
+    const datestr = $('.dnews_line').text().match(datereg);
+    if (datestr.length > 0) {
+      doc.bodydate = new Date(datestr[0]);
+    }
+    // empty body field save the mysql space
+    doc.body = '';
+    doc.needsave = true;
+  } else {
+    next();
   }
 }
-
 
 async function processProducts(doc, next) {
   // doc.url: http://systester.com/product_Show.asp?id=3235
   // pathname: /product_Show.asp
   const pathname = doc.pathname || url.parse(doc.url).pathname;
-  // http://www.sumspring.cn/supply/Products_2.html
-  // http://www.sumspring.cn/supply/99.html
-  const pathnamematch = pathname.match(/\/supply\/\d+\.html/gi);
-  if (pathnamematch == null) {
-    next();
-  } else {
+
+  if (pathname === '/zh-CN/displayproduct.html') {
     debug(`Found Product,id:${doc.id}`);
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
     // TODO  news product need to be cast to constvalue
     doc.bodytype = CONSTS.INFOTYPE.PRODUCT;
-    doc.bodytitle = $('title').text().replace('_包装材料检测仪器制造专家_Sumspring_济南三泉中石实验仪器有限公司', '');
-    doc.analyzedbody = $('.ovflow').text().trim();
+    doc.bodytitle = $('title').text().replace('----氧气透过率测定仪|水汽透过率测定仪|气体透过率测定仪|透气仪|透氧仪|透湿仪|包装检测仪器——广州标际包装设备有限公司', '');
+    doc.analyzedbody = $('.dis_tab').text().trim();
     // empty body field save the mysql space
     doc.body = '';
     doc.needsave = true;
+  } else if ((pathname === '/en/product_Show.asp') || (pathname === '/en/displayproduct.html')) {
+    debug(`Found Product,id:${doc.id}`);
+    const $ = cheerio.load(doc.body);
+    doc.analyzed = true;
+    // TODO  news product need to be cast to constvalue
+    doc.bodytype = CONSTS.INFOTYPE.PRODUCT;
+    doc.bodytitle = $('title').text().replace('----Oxygen permeability tester|Permeation testing instruments|Water Vapor Transmission Rate|WVTR|OTR|GTR|Laboratory equipment||Pouch spout inserting machine', '');
+    doc.analyzedbody = $('.dis_tab').text().trim();
+    // empty body field save the mysql space
+    doc.body = '';
+    doc.needsave = true;
+  } else {
+    next();
   }
 }
 
@@ -217,84 +209,58 @@ async function processUseless(doc, next) {
   // doc.url: http://systester.com/product_Show.asp?id=3235
   // pathname: /product_Show.asp
   const pathname = doc.pathname || url.parse(doc.url).pathname;
-  let pathnamematch = pathname.match(/\/News\/News_\d+\.html/gi);
-  let nouseflag = false;
-  if (pathnamematch !== null) {
-    nouseflag = true;
-  }
+  // pathname = pathname.replace(/\/en\//gm, '/');
+  // pathname = pathname.replace(/\/zh-CN\//gm, '/');
 
-  pathnamematch = pathname.match(/\/khal\/News_\d+\.html/gi);
-  if (pathnamematch !== null) {
-    nouseflag = true;
-  }
-  pathnamematch = pathname.match(/\/slbzjcyq\//gi);
-  if (pathnamematch !== null) {
-    nouseflag = true;
-  }
-  pathnamematch = pathname.match(/\/zbzysjcyq\//gi);
-  if (pathnamematch !== null) {
-    nouseflag = true;
-  }
-  pathnamematch = pathname.match(/\/zzpbzjcyq\//gi);
-  if (pathnamematch !== null) {
-    nouseflag = true;
-  }
-  pathnamematch = pathname.match(/\/gsxw\//gi);
-  if (pathnamematch !== null) {
-    nouseflag = true;
-  }
-  pathnamematch = pathname.match(/\/jzfa\//gi);
-  if (pathnamematch !== null) {
-    nouseflag = true;
-  }
-  pathnamematch = pathname.match(/\/hyzx\//gi);
-  if (pathnamematch !== null) {
-    nouseflag = true;
-  }
-  pathnamematch = pathname.match(/\/ypbzjcyq\//gi);
-  if (pathnamematch !== null) {
-    nouseflag = true;
-  }
-  pathnamematch = pathname.match(/\/supply\/Products_\d+\.html/gi);
-  if (pathnamematch !== null) {
-    nouseflag = true;
-  }
-  pathnamematch = pathname.match(/\/about\/about/gi);
-  if (pathnamematch !== null) {
-    nouseflag = true;
-  }
+  if (pathname.startsWith('/about-mocon')) {
+    // http://www.mocon.com/about-mocon.html
+    // http://www.mocon.com/about-mocon/about-mocon.html
 
-  if (nouseflag === false) {
-    next();
-  } else {
-    debug(`Found Useless,id:${doc.id}`);
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
-    // TODO  news product need to be cast to constvalue
     doc.bodytype = 'USELESS';
-    doc.bodytitle = $('title').text().replace('济南三泉中石实验仪器有限公司', '').trim();
-    // doc.bodytitle = $('title').text().replace('----Oxygen permeability tester|Permeation testing instruments|Water Vapor Transmission Rate|WVTR|OTR|GTR|Laboratory equipment||Pouch spout inserting machine', '');
-    // doc.analyzedbody = $('table[style$="border-top:none"]').text().trim();
-    // empty body field save the mysql space
+    doc.bodytitle = $('.page-heading').text();
     doc.body = '';
     doc.needsave = true;
   }
+
+  if (doc.needsave === true) {
+    debug(`Found Useless,id:${doc.id}`);
+  } else {
+    next();
+  }
+
+  // const uselessArray = ['/feedback.html', '/introduce.html', '/introduce001.html', '/introduce003.html'];
+  // if (!uselessArray.includes(pathname)) {
+  //   next();
+  // } else {
+  //   debug(`Found Useless,id:${doc.id}`);
+  //   const $ = cheerio.load(doc.body);
+  //   doc.analyzed = true;
+  //   // TODO  news product need to be cast to constvalue
+  //   doc.bodytype = 'USELESS';
+  //   doc.bodytitle = $('title').text().replace('----氧气透过率测定仪|水汽透过率测定仪|气体透过率测定仪|透气仪|透氧仪|透湿仪|包装检测仪器——广州标际包装设备有限公司', '');
+  //   doc.bodytitle = $('title').text().replace('----Oxygen permeability tester|Permeation testing instruments|Water Vapor Transmission Rate|WVTR|OTR|GTR|Laboratory equipment||Pouch spout inserting machine', '');
+  //   // doc.analyzedbody = $('table[style$="border-top:none"]').text().trim();
+  //   // empty body field save the mysql space
+  //   doc.body = '';
+  //   doc.needsave = true;
+  // }
 }
 
 function init() {
-  // this middleware must put at the first 
+// this middleware must put at the first 
   app.use(preAndPostAnalyze);
-  app.use(resetBlocked);
-  app.use(processProducts);
-  app.use(processNews);
   // app.use(resetSeedLists);
+  app.use(processUseless);
   // app.use(processMedias);
   // app.use(processFiles);
   // app.use(processSupportShow);
-  app.use(processUseless);
+  // app.use(processNews);
+  // app.use(processProducts);
 }
 async function run() {
-  const arrs = await getNotParsed('sumspring.com');
+  const arrs = await getNotParsed('mocon.com');
   debug(`mydb find ${arrs.length} urls`);
   arrs.forEach((doc) => {
     app.analyze(doc);
@@ -303,20 +269,19 @@ async function run() {
 
 
 const analyzer = {
-  app,
+  run,
   getNotParsed,
-  preAndPostAnalyze,
-  resetBlocked,
+  app,
   processMedias,
+  preAndPostAnalyze,
   processUseless,
   resetSeedLists,
   // processFiles,
-  // processSupportShow,1
+  // processSupportShow,
   processNews,
   processProducts,
-  run,
 };
 
 init();
-// run();
+run();
 module.exports = analyzer;

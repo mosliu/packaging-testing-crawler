@@ -76,6 +76,18 @@ Tools.formatHref = formatHref;
 function parseGotHref(base, href, crossSite = false) {
   // const baseUrl = Url.parse(base);
   const baseUrl = URLfyHref(base);
+  if (href.indexOf('://') > 0) {
+    // do nothing
+  } else if (href.toLowerCase().startsWith('tel:')) {
+    href = '';
+  } else if (href.toLowerCase().startsWith('mailto:')) {
+    href = '';
+  } else if (href.startsWith('/')) {
+    // do nothing
+  } else {
+    href = `/${href}`;
+  }
+
   const /** t:String */ gotHref = Url.resolve(base, href);
   // const refUrl = Url.parse(gotHref);
   const refUrl = URLfyHref(gotHref);
@@ -107,6 +119,7 @@ function parseGotHref(base, href, crossSite = false) {
     }
   }
   refUrl.hash = '';
+  // debug(refUrl);
   return refUrl;
 }
 Tools.parseGotHref = parseGotHref;
@@ -152,6 +165,7 @@ async function extractPageInfos(url, encoding = 'utf8') {
     const text = $(element).text();
     const href = $(element).attr('href');
     // console.log(`${text} : ${href}`);
+
     if (typeof href !== 'undefined') {
       const gotHref = parseGotHref(baseurl, href);
       if (gotHref) {

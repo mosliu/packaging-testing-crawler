@@ -3,6 +3,7 @@ const url = require('url');
 const cheerio = require('cheerio');
 const debug = require('debug')('Analyzer:gbtest');
 const Organizer = require('./organizer');
+const CONSTS = require('../CONSTS');
 
 const app = new Organizer();
 
@@ -46,7 +47,7 @@ async function processNews(doc, next) {
     debug(`Fount News,id:${doc.id}`);
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
-    doc.bodytype = 'NEWS';
+    doc.bodytype = CONSTS.INFOTYPE.NEWS;
     doc.bodytitle = $('.dnews_title').text().trim();
     doc.analyzedbody = $('.dnews_content').text().trim();
     const datereg = /\d{4}-\d{2}-\d{2}/ig;
@@ -61,7 +62,7 @@ async function processNews(doc, next) {
     debug(`Found News,id:${doc.id}`);
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
-    doc.bodytype = 'NEWS';
+    doc.bodytype = CONSTS.INFOTYPE.NEWS;
     doc.bodytitle = $('.dnews_title').text().trim();
     doc.analyzedbody = $('.dnews_content').text().trim();
     const datereg = /\d{4}-\d{2}-\d{2}/ig;
@@ -87,7 +88,7 @@ async function processProducts(doc, next) {
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
     // TODO  news product need to be cast to constvalue
-    doc.bodytype = 'PRODUCT';
+    doc.bodytype = CONSTS.INFOTYPE.PRODUCT;
     doc.bodytitle = $('title').text().replace('----氧气透过率测定仪|水汽透过率测定仪|气体透过率测定仪|透气仪|透氧仪|透湿仪|包装检测仪器——广州标际包装设备有限公司', '');
     doc.analyzedbody = $('.dis_tab').text().trim();
     // empty body field save the mysql space
@@ -98,7 +99,7 @@ async function processProducts(doc, next) {
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
     // TODO  news product need to be cast to constvalue
-    doc.bodytype = 'PRODUCT';
+    doc.bodytype = CONSTS.INFOTYPE.PRODUCT;
     doc.bodytitle = $('title').text().replace('----Oxygen permeability tester|Permeation testing instruments|Water Vapor Transmission Rate|WVTR|OTR|GTR|Laboratory equipment||Pouch spout inserting machine', '');
     doc.analyzedbody = $('.dis_tab').text().trim();
     // empty body field save the mysql space

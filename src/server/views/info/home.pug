@@ -1,0 +1,33 @@
+extends ../layouts/layout.pug
+append styles
+  // Custom styles for this template
+  link(href='../css/products.css', rel='stylesheet')
+block content  
+
+  .container
+    ol.breadcrumb
+      li
+        a(href='#') Home
+      li.active
+        span Home
+    hr.hr-primary
+
+  .container.theme-showcase(role='main')    
+    .page-header
+      h1 最近7天更新的内容
+    .row
+      //- p #{products}
+      .col-md-12
+        table.table(class="table-striped")
+          thead
+            tr
+              each head, i in ["#","website","url","UpdatedAt"]
+                th #{head}
+          tbody
+            each row,j in freshNews
+              tr
+                td #{row.id}
+                td #{row.websiteflag}
+                td 
+                  a(href=row.url) #{row.bodytitle || row.title}
+                td #{row.updatedAt.toLocaleString()}

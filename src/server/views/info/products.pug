@@ -1,0 +1,24 @@
+extends ../layouts/layout.pug
+
+block content  
+  .container.theme-showcase(role='main')    
+    .page-header
+    if keyword
+      h1 搜索关键字为：#{keyword}　　　查询到的个数为：#{objs.length}
+    else
+    .row
+      //- p #{products}
+      .col-md-12
+        table.table(class="table-striped")
+          thead
+            tr
+              each head, i in ["#","website","url",]
+                th #{head}
+          tbody
+            each row,j in objs
+              tr
+                td #{row.id}
+                td #{row.websiteflag}
+                td 
+                  a(href=row.url) #{row.title}
+                

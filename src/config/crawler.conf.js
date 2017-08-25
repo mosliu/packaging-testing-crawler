@@ -75,7 +75,11 @@ const mocon = {
 };
 
 const conf = {
-  systester, gbtest, sumspring, sumspringEn, mocon,
+  // systester,
+  // gbtest,
+  // sumspring,
+  // sumspringEn,
+  mocon,
 };
 
 const confArray = [];

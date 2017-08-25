@@ -1,0 +1,13 @@
+
+.search {
+    margin-top: 18%;
+}
+.search .offset10px{
+    padding: 20px;
+}
+.search .form-section{
+	background:rgba(0,0,0,0.6);
+	border: 2px solid #414141;
+	border-radius: 5px;
+	padding: 10px;
+}

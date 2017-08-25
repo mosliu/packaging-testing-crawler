@@ -1,0 +1,10 @@
+const INFOTYPE = {
+  PRODUCT: 'PRODUCT',
+  USELESS: 'USELESS',
+  NEWS: 'NEWS',
+  SUPPORTSHOW: 'SUPPORTSHOW',
+  MEDIA: 'MEDIA',
+};
+Object.freeze(INFOTYPE);
+module.exports = INFOTYPE;
+

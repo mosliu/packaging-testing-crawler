@@ -1,0 +1,13 @@
+extends ../_bootstrap.pug
+
+append styles
+  // Bootstrap theme
+  //- +bootswatch("cerulean")
+  //- +bootswatch("spacelab")
+  +bootswatch("darkly")
+  // Custom styles for this template
+  //- link(href='../css/theme.css', rel='stylesheet')
+block body
+    include header.pug  
+    block content 
+    include footer.pug

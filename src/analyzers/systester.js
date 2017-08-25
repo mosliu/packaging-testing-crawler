@@ -3,6 +3,7 @@ const url = require('url');
 const cheerio = require('cheerio');
 const debug = require('debug')('Analyzer:systester');
 const Organizer = require('./organizer');
+const CONSTS = require('../CONSTS');
 
 const app = new Organizer();
 
@@ -48,7 +49,7 @@ async function processNews(doc, next) {
     debug(`Fount News,id:${doc.id}`);
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
-    doc.bodytype = 'NEWS';
+    doc.bodytype = CONSTS.INFOTYPE.NEWS;
     doc.bodytitle = $('.centen2').prev('h2').text();
     doc.analyzedbody = $('.centen2').text().trim();
     const datereg = /\d{4}-\d{2}-\d{2}/ig;
@@ -74,7 +75,7 @@ async function processProducts(doc, next) {
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
     // TODO  news product need to be cast to constvalue
-    doc.bodytype = 'PRODUCT';
+    doc.bodytype = CONSTS.INFOTYPE.PRODUCT;
     doc.bodytitle = $('title').text().replace('-软包装检测仪器_食品药品包装检测设备_SYSTESTER思克-济南思克测试技术有限公司', '');
     doc.analyzedbody = $('table[style$="border-top:none"]').text().trim();
     // empty body field save the mysql space
@@ -116,7 +117,7 @@ async function processSupportShow(doc, next) {
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
     // TODO  news product need to be cast to constvalue
-    doc.bodytype = 'SUPPORTSHOW';
+    doc.bodytype = CONSTS.INFOTYPE.SUPPORTSHOW;
     doc.bodytitle = $('title').text().replace('-软包装检测仪器_食品药品包装检测设备_SYSTESTER思克-济南思克测试技术有限公司', '');
     doc.analyzedbody = $('table[style$="border-top:none"]').text().trim();
     const datereg = /\d{4}-\d{2}-\d{2}/ig;

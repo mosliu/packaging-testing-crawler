@@ -1,0 +1,33 @@
+extends ../layouts/layout.pug
+append styles
+  // Custom styles for this template
+  link(href='../css/products.css', rel='stylesheet')
+block content  
+
+  .container
+    ol.breadcrumb
+      li
+        a(href='#') Home
+      li
+        a(href='#') Library
+      li.active
+        span Data
+    hr.hr-primary
+
+  .search
+    .container
+
+      .row
+        .col-md-10.col-md-offset-1
+          .form-section
+            .row 
+              h3.offset10px 输入要搜索产品的关键字:
+            .row
+              form(role='form',action='/info/product',method='post')
+                .col-md-10
+                  .form-group
+                    label.sr-only(for='location') Location
+                    input#location.form-control(type='text', name='key', placeholder='设备关键字，如：氧气')
+                
+                .col-md-2
+                  button.btn.btn-default.btn-primary(type='submit') Search
