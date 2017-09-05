@@ -2,7 +2,7 @@ const myDb = require('../db');
 const url = require('url');
 const cheerio = require('cheerio');
 const debug = require('debug')('Analyzer:systester');
-const Organizer = require('./organizer');
+const Organizer = require('../utils/engine');
 const CONSTS = require('../CONSTS');
 
 const app = new Organizer();
@@ -52,9 +52,12 @@ async function processNews(doc, next) {
     doc.bodytype = CONSTS.INFOTYPE.NEWS;
     doc.bodytitle = $('.centen2').prev('h2').text();
     doc.analyzedbody = $('.centen2').text().trim();
+    if (doc.analyzedbody === null) {
+      doc.analyzedbody = doc.body;
+    }
     const datereg = /\d{4}-\d{2}-\d{2}/ig;
     const datestr = $('div.centen2 div span').text().match(datereg);
-    if (datestr.length > 0) {
+    if (datestr !== null && datestr.length > 0) {
       doc.bodydate = new Date(datestr[0]);
     }
     // empty body field save the mysql space
@@ -144,11 +147,12 @@ async function processUseless(doc, next) {
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
     // TODO  news product need to be cast to constvalue
-    doc.bodytype = 'USELESS';
+    doc.bodytype = CONSTS.INFOTYPE.USELESS;
     doc.bodytitle = $('title').text().replace('-软包装检测仪器_食品药品包装检测设备_SYSTESTER思克-济南思克测试技术有限公司', '');
     // doc.analyzedbody = $('table[style$="border-top:none"]').text().trim();
     // empty body field save the mysql space
     doc.body = '';
+    doc.notuseful = true;
     doc.needsave = true;
   }
 }
@@ -163,7 +167,7 @@ function init() {
   app.use(processProducts);
 }
 async function run() {
-  const arrs = await getNotParsed('systester.com');
+  const arrs = await getNotParsed(CONSTS.WEBSITEFLAG.SYSTESTER);
   debug(`mydb find ${arrs.length} urls`);
   arrs.forEach((doc) => {
     app.analyze(doc);

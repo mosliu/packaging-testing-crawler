@@ -2,7 +2,7 @@ const myDb = require('../db');
 const url = require('url');
 const cheerio = require('cheerio');
 const debug = require('debug')('Analyzer:sumspring');
-const Organizer = require('./organizer');
+const Organizer = require('../utils/engine');
 const CONSTS = require('../CONSTS');
 
 const app = new Organizer();
@@ -41,6 +41,9 @@ async function preAndPostAnalyze(doc, next) {
   doc.pathname = pathname;
   // eslint-disable-next-line
   doc.needsave = false;
+  if (doc.body === null) {
+    console.log(doc.id);
+  }
   await next();
   if (doc.needsave) {
     debug(`Modified Doc saved,id:${doc.id}`);
@@ -165,26 +168,22 @@ async function processMedias(doc, next) {
   }
 }
 
-// async function processFiles(doc, next) {
-//   // doc.url: http://systester.com/product_Show.asp?id=3235
-//   // pathname: /product_Show.asp
-//   const pathname = doc.pathname || url.parse(doc.url).pathname;
-
-//   if (!pathname.startsWith('/upfiles/')) {
-//     next();
-//   } else {
-//     debug(`Found File,id:${doc.id}`);
-//     // const $ = cheerio.load(doc.body);
-//     doc.analyzed = true;
-//     // TODO  news product need to be cast to constvalue
-//     doc.bodytype = 'FILE';
-//     doc.bodytitle = doc.title;
-//     // doc.analyzedbody = $('table[style$="border-top:none"]').text().trim();
-//     // empty body field save the mysql space
-//     doc.body = '';
-//     doc.needsave = true;
-//   }
-// }
+async function processFiles(doc, next) {
+  // doc.url: http://www.drick.cn/sys_manager/images/pdf/20170623021505.pdf
+  // pathname: /sys_manager/images/pdf/20170623021505.pdf
+  const pathname = doc.pathname || url.parse(doc.url).pathname;
+  // if('/sys_manager/images/pdf/20170623021505.pdf'.endsWith('.pdf'))console.log(1)
+  if (pathname.endsWith('.pdf')) {
+    debug(`Found File,id:${doc.id}`);
+    doc.analyzed = true;
+    doc.bodytype = CONSTS.INFOTYPE.FILE;
+    doc.bodytitle = doc.title;
+    doc.body = '';
+    doc.needsave = true;
+  } else {
+    next();
+  }
+}
 
 // for gbtest support info is same to news
 // async function processSupportShow(doc, next) {
@@ -263,6 +262,11 @@ async function processUseless(doc, next) {
   if (pathnamematch !== null) {
     nouseflag = true;
   }
+  pathnamematch = pathname.match(/\/key\.aspx/gi);
+  if (pathnamematch !== null) {
+    nouseflag = true;
+  }
+
 
   if (nouseflag === false) {
     next();
@@ -277,6 +281,7 @@ async function processUseless(doc, next) {
     // doc.analyzedbody = $('table[style$="border-top:none"]').text().trim();
     // empty body field save the mysql space
     doc.body = '';
+    doc.notuseful = true;
     doc.needsave = true;
   }
 }
@@ -284,17 +289,17 @@ async function processUseless(doc, next) {
 function init() {
   // this middleware must put at the first 
   app.use(preAndPostAnalyze);
-  app.use(resetBlocked);
+  app.use(processFiles);
+  app.use(processUseless);
   app.use(processProducts);
   app.use(processNews);
   // app.use(resetSeedLists);
   // app.use(processMedias);
-  // app.use(processFiles);
   // app.use(processSupportShow);
-  app.use(processUseless);
+  app.use(resetBlocked);
 }
 async function run() {
-  const arrs = await getNotParsed('sumspring.com');
+  const arrs = await getNotParsed(CONSTS.WEBSITEFLAG.SUMSPRING);
   debug(`mydb find ${arrs.length} urls`);
   arrs.forEach((doc) => {
     app.analyze(doc);
@@ -318,5 +323,6 @@ const analyzer = {
 };
 
 init();
+// run();
 // run();
 module.exports = analyzer;

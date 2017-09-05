@@ -5,16 +5,36 @@ append styles
 block content  
 
   .container
+    
+
+  .container.theme-showcase(role='main')
     ol.breadcrumb
       li
         a(href='#') Home
       li.active
         span Home
     hr.hr-primary
-
-  .container.theme-showcase(role='main')    
+      
     .page-header
-      h1 最近7天更新的内容
+      h1 更新的仪器
+    .row
+      //- p #{products}
+      .col-md-12
+        table.table(class="table-striped")
+          thead
+            tr
+              each head, i in ["#","website","url","UpdatedAt"]
+                th #{head}
+          tbody
+            each row,j in freshPros 
+              tr
+                td #{row.id}
+                td #{row.websiteflag}
+                td 
+                  a(href=row.url) #{row.bodytitle || row.title}
+                td #{row.updatedAt.toLocaleString()}
+    .page-header
+      h1 更新的新闻内容
     .row
       //- p #{products}
       .col-md-12
@@ -31,3 +51,4 @@ block content
                 td 
                   a(href=row.url) #{row.bodytitle || row.title}
                 td #{row.updatedAt.toLocaleString()}
+    

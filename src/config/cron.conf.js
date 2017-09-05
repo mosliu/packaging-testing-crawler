@@ -1,10 +1,10 @@
 const crawler = {
   // 每小时
-  crontab: '0 21  * * * *',
+  crontab: '0 40 * * * *',
 };
 const analyzer = {
   // 每小时
-  crontab: '0 30 * * * *',
+  crontab: '0 */5 * * * *',
 };
 const cronConf = {
   crawler,

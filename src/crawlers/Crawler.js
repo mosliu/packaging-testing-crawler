@@ -7,6 +7,8 @@ const Debug = require('debug');
 const Tools = require('./tools');
 const myDb = require('../db');
 
+const urlFixer = require('./url_fixer');
+
 
 /* *************************private methods ************************* */
 function initdb() {
@@ -69,13 +71,16 @@ function initUrlToProcess() {
 
 
 /**
- * 
  *  
  * @param {any} obj {text:text,href:url}
  */
-function processNextUrl(obj) {
+async function processNextUrl(obj) {
+  obj.websiteflag = this.siteconfig.websiteflag;
+  await urlFixer.analyze(obj);
+  if (obj.href === '') {
+    this.debug(`no need to parse:${obj.backup.href}`);
+  }
   const url2add = Tools.formatHref(obj.href);
-
   if (url2add === null) {
     this.debug(`Wrong url:${obj.href}`);
   } else {
@@ -86,7 +91,7 @@ function processNextUrl(obj) {
     };
     if (!this.urlDict[url2add]) {
       const fileflag = Tools.judgedDocFile(url2add, this.siteconfig.websiteflag);
-      storeObj.isfile = fileflag;
+
       // update urlDict
       this.urlDict[url2add] = storeObj;
       Tools.saveUrl(storeObj, this.siteconfig.filepath);
@@ -104,12 +109,19 @@ function processNextUrl(obj) {
       }
 
       // await myDb.newOneSync(storeObj);
+
+      if (fileflag === true) {
+        storeObj.accessed = true;
+        storeObj.analyze = true;
+        storeObj.isfile = fileflag;
+      }
       myDb.newOne(storeObj, (aobj) => { });
       this.debug(`url:${url2add} pushed into urlToProcess`);
       // console.log(`url:${url2add} pushed into urlToProcess`);
     }
   }
 }
+
 
 /* *************************class defination************************* */
 class Crawler {
@@ -145,8 +157,8 @@ class Crawler {
       myDb.updateAsyc({ url: pageinfo.refurl }, { accessed: true, body: pageinfo.body });
       const urls = pageinfo.urls;
 
-      urls.forEach((element) => {
-        processNextUrl.call(this, element);
+      urls.forEach(async (element) => {
+        await processNextUrl.call(this, element);
       });
       // this.concurrency = this.concurrency + 1;
 

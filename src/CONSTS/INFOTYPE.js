@@ -4,6 +4,7 @@ const INFOTYPE = {
   NEWS: 'NEWS',
   SUPPORTSHOW: 'SUPPORTSHOW',
   MEDIA: 'MEDIA',
+  FILE: 'FILE',
 };
 Object.freeze(INFOTYPE);
 module.exports = INFOTYPE;

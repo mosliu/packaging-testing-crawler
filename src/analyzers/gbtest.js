@@ -2,7 +2,8 @@ const myDb = require('../db');
 const url = require('url');
 const cheerio = require('cheerio');
 const debug = require('debug')('Analyzer:gbtest');
-const Organizer = require('./organizer');
+// const Organizer = require('./organizer');
+const Organizer = require('../utils/engine');
 const CONSTS = require('../CONSTS');
 
 const app = new Organizer();
@@ -221,10 +222,11 @@ async function processUseless(doc, next) {
     // TODO  news product need to be cast to constvalue
     doc.bodytype = 'USELESS';
     doc.bodytitle = $('title').text().replace('----氧气透过率测定仪|水汽透过率测定仪|气体透过率测定仪|透气仪|透氧仪|透湿仪|包装检测仪器——广州标际包装设备有限公司', '');
-    doc.bodytitle = $('title').text().replace('----Oxygen permeability tester|Permeation testing instruments|Water Vapor Transmission Rate|WVTR|OTR|GTR|Laboratory equipment||Pouch spout inserting machine', '');
+    doc.bodytitle = doc.bodytitle.replace('----Oxygen permeability tester|Permeation testing instruments|Water Vapor Transmission Rate|WVTR|OTR|GTR|Laboratory equipment||Pouch spout inserting machine', '');
     // doc.analyzedbody = $('table[style$="border-top:none"]').text().trim();
     // empty body field save the mysql space
     doc.body = '';
+    doc.notuseful = true;
     doc.needsave = true;
   }
 }
@@ -241,7 +243,7 @@ function init() {
   app.use(processProducts);
 }
 async function run() {
-  const arrs = await getNotParsed('gbtest.cn');
+  const arrs = await getNotParsed(CONSTS.WEBSITEFLAG.GBTEST);
   debug(`mydb find ${arrs.length} urls`);
   arrs.forEach((doc) => {
     app.analyze(doc);

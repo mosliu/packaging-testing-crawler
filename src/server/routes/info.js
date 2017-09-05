@@ -1,10 +1,27 @@
 const router = require('koa-router')();
-const eebug = require('debug')('info_show');
+const debug = require('debug')('info_show');
 const myDb = require('../../db');
 const CONSTS = require('../../CONSTS');
 
+function IsNum(s) {
+  if (s != null && s !== '') {
+    return !isNaN(s);
+  }
+  return false;
+}
 
-router.get('/', async (ctx, next) => {
+
+async function render(ctx, page, obj) {
+  obj.prefix = '';
+  await ctx.render(page, obj);
+}
+
+async function getRecentNews(days) {
+  const start = new Date();
+  let d = 1;
+  if (IsNum(days)) {
+    d = parseInt(days, 10);
+  }
   const freshNews = await myDb.findAll({
     where: {
       bodytype: {
@@ -12,23 +29,55 @@ router.get('/', async (ctx, next) => {
       },
       analyzed: true,
       updatedAt: {
-        $gt: Date.now() - 1000 * 60 * 60 * 24 * 7,
+        $gt: Date.now() - (1000 * 60 * 60 * 24 * d),
       },
     },
   });
+  const ms = new Date() - start;
+  console.log(`time consume is ${ms} ms`);
+  return freshNews;
+}
 
-  // const products = freshNews.map(
-  //   ele => ({
-  //     id: ele.id,
-  //     url: ele.url,
-  //     title: ele.bodytitle || ele.title,
-  //     websiteflag: ele.websiteflag,
-  //   }),
-  // );
-  await ctx.render('info/home', {
-    freshNews,
+async function getRecentProducts(days) {
+  let d = 1;
+  if (IsNum(days)) {
+    d = parseInt(days, 10);
+  }
+  const freshNews = await myDb.findAll({
+    where: {
+      bodytype: {
+        $or: [CONSTS.INFOTYPE.PRODUCT],
+      },
+      analyzed: true,
+      updatedAt: {
+        $gt: Date.now() - (1000 * 60 * 60 * 24 * d),
+      },
+    },
+  });
+  return freshNews;
+}
+
+
+router.get('/', async (ctx, next) => {
+  const freshNews = await getRecentNews(1);
+  const freshPros = await getRecentProducts(1);
+  // await ctx.render('info/home', {
+  //   freshNews, freshPros,
+  // });
+  await render(ctx, 'info/home', {
+    freshNews, freshPros,
   });
 });
+
+router.get('/recent/:days', async (ctx, next) => {
+  const days = ctx.params.days;
+  const freshNews = await getRecentNews(days);
+  const freshPros = await getRecentProducts(days);
+  await ctx.render('info/home', {
+    freshNews, freshPros,
+  });
+});
+
 
 router.get('/product', async (ctx, next) => {
   await ctx.render('info/products_main', {
@@ -109,5 +158,6 @@ router.get('/news/:name', async (ctx, next) => {
     objs,
   });
 });
+
 
 module.exports = router;

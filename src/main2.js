@@ -1,3 +1,9 @@
-const config = require('./config');
+process.env.debug = '*,-sequelize:*,-retry-as-promised,-log4js*,-koa-router,-streamroller:*,-koa-views';
+process.env.NODE_ENV = 'production';
 
-console.dir(config.crawler.confArray);
+const server = require('./server');
+const crons = require('./crons');
+
+server.init();
+crons.start();
+

@@ -84,6 +84,6 @@ function init() {
   httpserver.on('error', onError);
   httpserver.on('listening', onListening);
 }
-// init();
+init();
 
 module.exports = { init };

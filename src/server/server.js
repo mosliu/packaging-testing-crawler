@@ -34,6 +34,12 @@ app.use(views(`${__dirname}/views`, {
   extension: 'pug',
 }));
 
+app.use(async (ctx, next) => {
+  // res.locals.destpath = '/info';
+  await next();
+});
+
+
 // logger
 app.use(async (ctx, next) => {
   // 响应开始时间
@@ -44,8 +50,8 @@ app.use(async (ctx, next) => {
     // 开始进入到下一个中间件
     await next();
     ms = new Date() - start;
-    // 记录响应日志
-    logUtil.logResponse(ctx, ms);
+    // 记录响应日志fa
+    // logUtil.logResponse(ctx, ms);
   } catch (error) {
     ms = new Date() - start;
     // 记录异常日志

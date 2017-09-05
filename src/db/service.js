@@ -51,7 +51,7 @@ function newOne(obj, cb) {
     if (created) {
       debug(`new entry created! The obj is ${JSON.stringify(obj)}`);
     } else {
-      debug('try to add an existing entity');
+      debug(`try to add an existing entity : ${obj.url}`);
     }
     cb(entity);
   });

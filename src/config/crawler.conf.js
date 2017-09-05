@@ -3,6 +3,7 @@
  */
 const dir = require('./dirs.conf');
 const path = require('path');
+const CONSTS = require('../CONSTS');
 
 const crawlerDbRootPath = '/logs';
 const systester = {
@@ -11,7 +12,7 @@ const systester = {
     'http://systester.com/Products.asp', 'http://systester.com/Support.asp',
   ],
   name: 'systester',
-  websiteflag: 'systester.com',
+  websiteflag: CONSTS.WEBSITEFLAG.SYSTESTER,
   pageencode: 'gb2312',
   dictfilepath: '',
   listpath: '',
@@ -22,7 +23,7 @@ const gbtest = {
   // for gbtest ,the product seed is too much,so set in analyzer.
   urlSeed: ['http://www.gbtest.cn/zh-CN/index.html', 'http://www.gbtest.cn/zh-CN/news001.html'],
   name: 'gbtest',
-  websiteflag: 'gbtest.cn',
+  websiteflag: CONSTS.WEBSITEFLAG.GBTEST,
   pageencode: 'utf8',
   dictfilepath: '',
   listpath: '',
@@ -38,7 +39,7 @@ const sumspring = {
     'http://www.sumspring.com/khal/', 'http://www.sumspring.com/jzfa/',
   ],
   name: 'sumspring',
-  websiteflag: 'sumspring.com',
+  websiteflag: CONSTS.WEBSITEFLAG.SUMSPRING,
   pageencode: 'gb2312',
   dictfilepath: '',
   listpath: '',
@@ -55,7 +56,7 @@ const sumspringEn = {
     'http://www.sumspring.cn/jnzpjcyq/', 'http://www.sumspring.cn/slbzjcyq/',
   ],
   name: 'sumspringEn',
-  websiteflag: 'sumspring.com',
+  websiteflag: CONSTS.WEBSITEFLAG.SUMSPRING,
   pageencode: 'gb2312',
   dictfilepath: '',
   listpath: '',
@@ -65,9 +66,45 @@ const sumspringEn = {
 const mocon = {
   urlSeed: [
     'http://www.mocon.com/index.html',
+    // 'http://www.mocon.com/about-mocon/brands-and-capabilities/permeation.html',
   ],
   name: 'mocon',
-  websiteflag: 'mocon.com',
+  websiteflag: CONSTS.WEBSITEFLAG.MOCON,
+  pageencode: 'utf8',
+  dictfilepath: '',
+  listpath: '',
+  dbpath: '',
+};
+const labstone = {
+  urlSeed: [
+    'http://www.labstone.cn/',
+    'http://en.labstone.cn/products/FrontColumns_navigation01-1487904483630FirstColumnId=2.html',
+  ],
+  name: 'labstone',
+  websiteflag: CONSTS.WEBSITEFLAG.LABSTONE,
+  pageencode: 'utf8',
+  dictfilepath: '',
+  listpath: '',
+  dbpath: '',
+};
+const drick = {
+  urlSeed: [
+    'http://www.drick.cn/',
+    'http://www.drick.cn/en/Product.aspx',
+  ],
+  name: 'drick',
+  websiteflag: CONSTS.WEBSITEFLAG.DRICK,
+  pageencode: 'utf8',
+  dictfilepath: '',
+  listpath: '',
+  dbpath: '',
+};
+const cscii = {
+  urlSeed: [
+    'http://cscii.com/',
+  ],
+  name: 'cscii',
+  websiteflag: CONSTS.WEBSITEFLAG.CSCII,
   pageencode: 'utf8',
   dictfilepath: '',
   listpath: '',
@@ -75,11 +112,14 @@ const mocon = {
 };
 
 const conf = {
-  // systester,
-  // gbtest,
-  // sumspring,
-  // sumspringEn,
+  systester,
+  gbtest,
+  sumspring,
+  sumspringEn,
   mocon,
+  labstone,
+  drick,
+  cscii,
 };
 
 const confArray = [];

@@ -2,7 +2,7 @@ const myDb = require('../db');
 const url = require('url');
 const cheerio = require('cheerio');
 const debug = require('debug')('Analyzer:mocon');
-const Organizer = require('./organizer');
+const Organizer = require('../utils/engine');
 const CONSTS = require('../CONSTS');
 
 const app = new Organizer();
@@ -79,29 +79,16 @@ async function processNews(doc, next) {
 }
 
 async function processProducts(doc, next) {
-  // doc.url: http://systester.com/product_Show.asp?id=3235
-  // pathname: /product_Show.asp
   const pathname = doc.pathname || url.parse(doc.url).pathname;
-
-  if (pathname === '/zh-CN/displayproduct.html') {
+  // http://www.mocon.com/instruments/optech-o2-model-p.html
+  if (pathname.toLowerCase().startsWith('/instruments/')) {
     debug(`Found Product,id:${doc.id}`);
     const $ = cheerio.load(doc.body);
     doc.analyzed = true;
     // TODO  news product need to be cast to constvalue
     doc.bodytype = CONSTS.INFOTYPE.PRODUCT;
-    doc.bodytitle = $('title').text().replace('----氧气透过率测定仪|水汽透过率测定仪|气体透过率测定仪|透气仪|透氧仪|透湿仪|包装检测仪器——广州标际包装设备有限公司', '');
-    doc.analyzedbody = $('.dis_tab').text().trim();
-    // empty body field save the mysql space
-    doc.body = '';
-    doc.needsave = true;
-  } else if ((pathname === '/en/product_Show.asp') || (pathname === '/en/displayproduct.html')) {
-    debug(`Found Product,id:${doc.id}`);
-    const $ = cheerio.load(doc.body);
-    doc.analyzed = true;
-    // TODO  news product need to be cast to constvalue
-    doc.bodytype = CONSTS.INFOTYPE.PRODUCT;
-    doc.bodytitle = $('title').text().replace('----Oxygen permeability tester|Permeation testing instruments|Water Vapor Transmission Rate|WVTR|OTR|GTR|Laboratory equipment||Pouch spout inserting machine', '');
-    doc.analyzedbody = $('.dis_tab').text().trim();
+    doc.bodytitle = $('.page-heading').text().trim();
+    doc.analyzedbody = $('.main-content').text().trim();
     // empty body field save the mysql space
     doc.body = '';
     doc.needsave = true;
@@ -113,22 +100,8 @@ async function processProducts(doc, next) {
 // 标记的种子页面太多了 使用该方法可以重置所有的种子页面获取状态
 async function resetSeedLists(doc, next) {
   const pathname = doc.pathname || url.parse(doc.url).pathname;
-  // pathname = pathname.replace(/\/en\//gm, '/');
-  // pathname = pathname.replace(/\/zh-CN\//gm, '/');
 
-  const productArray = [
-    '/zh-CN/products.html', '/zh-CN/products001.html', '/zh-CN/products002.html',
-    '/en/newproducts.html', '/en/products.html',
-  ];
-
-  const newsArray = [
-    '/zh-CN/news.html', '/zh-CN/news001.html', '/zh-CN/news002.html',
-    '/en/news.html',
-  ];
-
-  const allArray = newsArray.concat(productArray);
-
-  if (allArray.includes(pathname)) {
+  if (pathname.toLowerCase().startsWith('/instruments/browse-instruments.html')) {
     doc.analyzed = false;
     doc.accessed = false;
     doc.needsave = true;
@@ -221,6 +194,7 @@ async function processUseless(doc, next) {
     doc.bodytype = 'USELESS';
     doc.bodytitle = $('.page-heading').text();
     doc.body = '';
+    doc.notuseful = true;
     doc.needsave = true;
   }
 
@@ -251,16 +225,15 @@ async function processUseless(doc, next) {
 function init() {
 // this middleware must put at the first 
   app.use(preAndPostAnalyze);
-  // app.use(resetSeedLists);
+  app.use(resetSeedLists);
   app.use(processUseless);
   // app.use(processMedias);
-  // app.use(processFiles);
   // app.use(processSupportShow);
   // app.use(processNews);
-  // app.use(processProducts);
+  app.use(processProducts);
 }
 async function run() {
-  const arrs = await getNotParsed('mocon.com');
+  const arrs = await getNotParsed(CONSTS.WEBSITEFLAG.MOCON);
   debug(`mydb find ${arrs.length} urls`);
   arrs.forEach((doc) => {
     app.analyze(doc);
@@ -283,5 +256,5 @@ const analyzer = {
 };
 
 init();
-run();
+// run();
 module.exports = analyzer;

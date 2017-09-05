@@ -1,11 +1,12 @@
 const myDb = require('../db');
 const debug = require('debug')('Analyzer:sumspring');
+const CONSTS = require('../CONSTS');
 
 async function getNotParsed(website) {
   const rtn = await myDb.findAll({
     where: {
       accessed: true,
-      websiteflag: 'sumspring.com',
+      websiteflag: CONSTS.WEBSITEFLAG.SUMSPRING,
       // isfile: false,
       analyzed: true,
     },
@@ -15,7 +16,7 @@ async function getNotParsed(website) {
 
 
 async function run() {
-  const arrs = await getNotParsed('sumspring.com');
+  const arrs = await getNotParsed(CONSTS.WEBSITEFLAG.SUMSPRING);
   debug(`mydb find ${arrs.length} urls`);
   arrs.forEach((doc) => {
     let saveflag = false;

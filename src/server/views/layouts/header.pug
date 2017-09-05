@@ -11,25 +11,27 @@ nav.navbar.navbar-default.navbar-fixed-top
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
         li.active
-          a(href='/info') 首页
-        li
-          a(href='/info/product') 产品
-        li
-          a(href='/info/news') 新闻
+          a(href='') 首页
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-            | Dropdown 
+            | 更新情况列表
             span.caret
           ul.dropdown-menu(role='menu')
             li
-              a(href='#') Action
+              a(href='recent/1') 一天情况
             li
-              a(href='#') Another action
+              a(href='recent/3') 三天情况
             li
-              a(href='#') Something else here
+              a(href='recent/7') 一周情况
             li.divider
             li.dropdown-header Nav header
             li
               a(href='#') Separated link
             li
               a(href='#') One more separated link
+        li
+          a(href='product') 产品检索
+        li
+          a(href='news') 新闻检索
+        
+      
